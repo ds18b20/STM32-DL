@@ -1,3 +1,7 @@
+# Prj files
+.settings
+Debug
+
 # Prerequisites
 *.d
 
