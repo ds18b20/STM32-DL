@@ -607,7 +607,7 @@ int demo(void)
     /** RUN **/
     Run_Affine(affine3_layer);
 
-    Print_Feature(affine3_layer.output_f);
+//    Print_Feature(affine3_layer.output_f);
     /** !!! MEMORY RELEASE !!! **/
     Release_Memory(&affine2_output_feature);
     Release_Memory(&affine2_bias);
@@ -620,7 +620,7 @@ int demo(void)
     /************
     Predict
     ************/
-    Print_Feature(affine3_layer.output_f);
+//    Print_Feature(affine3_layer.output_f);
 //    printf("Prediction: %d\n", Argmax(affine3_layer.output_f));
     ret = Argmax(affine3_layer.output_f);
     Debug_Print_Integer_ln(&huart3, ret);
