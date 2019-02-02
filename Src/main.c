@@ -45,7 +45,6 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "serial.h"
 #include "nn.h"
 /* USER CODE END Includes */
 
@@ -98,8 +97,7 @@ void SystemClock_Config(void);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-//	char buffer[16];
-//	int i = 15;
+
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -132,14 +130,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-	HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
-	Debug_Print_String_ln(&huart3, "Prediction:");
-
-//	printf("www\n");
-
-	demo();
-
-	HAL_Delay(1000);
+    demo();
+    HAL_GPIO_TogglePin(LD1_GPIO_Port, LD1_Pin);
+    HAL_Delay(500);
   }
   /* USER CODE END 3 */
 }
@@ -205,20 +198,20 @@ PUTCHAR_PROTOTYPE
 {
   /* Place your implementation of fputc here */
   /* e.g. write a character to the USART3 and Loop until the end of transmission */
-  // 注意下面第一个参数是&huart1，因为cubemx配置了串口1自动生成的
   HAL_UART_Transmit(&huart3, (uint8_t *)&ch, 1, 0xFFFF);
 
   return ch;
 }
+
 int _write(int file, char *ptr, int len)
 {
-    int DataIdx;
+  int DataIdx;
 
-    for (DataIdx = 0; DataIdx < len; DataIdx++)
-    {
-        __io_putchar(*ptr++);
-    }
-    return len;
+  for (DataIdx = 0; DataIdx < len; DataIdx++)
+  {
+    __io_putchar(*ptr++);
+  }
+  return len;
 }
 
 /* USER CODE END 4 */

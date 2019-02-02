@@ -6,7 +6,7 @@
 #include <string.h>
 
 //extern UART_HandleTypeDef huart1;
-  char buffer[16];
+char buffer[16];
 
 /* print a string */
 void Debug_Print_String(UART_HandleTypeDef *huart, char _out[])
