@@ -605,7 +605,7 @@ int demo(void)
     Predict
     ************/
     ret = Argmax(affine3_layer.output_f);
-    printf("Prediction: %d", ret);
+    printf("Prediction: %d\n", ret);
 
     /************
     Softmax
